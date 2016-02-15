@@ -1,0 +1,10 @@
+<h2>Your Devices:</h2>
+<div ng-repeat="device in Main.user.devices">
+  <div> {{device.id}}</div>
+  <div> {{device.status}}</div>
+  <div> Device z0n3s </div>
+  <div ng-repeat="zone in device.zones">
+    <pre>{{zone}}</pre>
+    <img src="{{zone.customNozzle.imageUrl}}"/>
+  </div>
+</div>

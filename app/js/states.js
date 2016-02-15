@@ -4,32 +4,19 @@
 */
 angular.module('sprinkle.states').config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
   $urlRouterProvider.otherwise('/');
-  $stateProvider.state('a', {
+  $stateProvider.state('main', {
     url: '/',
     views: {
       "main@": {
         templateUrl: 'templates/main.html',
         controllerAs: 'Main',
-        controller: ['Api', function function_name(Api) {
-
-          var vm = this;
-
-          Api.proxyGET('public/person/info')
-            .catch(_err)
-            .then(function (resp){
-              // save your data visibly
-              return vm.id = resp.id
-            })
-            .finally(getPersonInfo);
-
-          function getPersonInfo() {
-            // get public information
-            Api.proxyGET('public/person/'+vm.id)
-            .then(function (resp) {
-              return vm.user = resp;
-            })
-          }
-        }]
+        controller: 'MainCtrl'
+      },
+      "User@main" :{
+        template: '<h1>Welcome, {{Main.user.fullName}}</h1>'
+      },
+      "Devices@main" : {
+        templateUrl: 'templates/devices.html'
       }
     },
   })

@@ -1,14 +1,5 @@
-<h1>Welcome, {{Main.user.fullName}}</h1>
-
+<!-- User -->
+<div ui-view name="User"></div>
 <!-- show devices -->
-<h2>Your Devices:</h2>
-<div ng-repeat="device in Main.user.devices">
-  <div> {{device.id}}</div>
-  <div> online: {{device.online}} </div>
-  <div> Device z0n3s </div>
-  <div ng-repeat="zone in device.zones">
-    <pre>{{zone}}</pre>
-    <img src="{{zone.customNozzle.imageUrl}}"/>
-  </div>
-</div>
+<div ui-view name="Devices"></div>
 
