@@ -1,0 +1,10 @@
+<div> {{ctrl.device.id}}</div>
+<div> {{ctrl.device.status}}</div>
+<div> {{ctrl.device.zones.length}} zones on this device </div>
+<div> run all devices </div>
+<input placeholder="duration" ng-model="ctrl.duration"></input>
+<button ng-click="ctrl.runAll(ctrl.duration)">Start</button>
+
+<div ng-repeat="zone in ctrl.device.zones">
+  <div rac-device-zone zone="zone"></div>
+</div>
