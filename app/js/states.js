@@ -12,9 +12,10 @@ angular.module('sprinkle.states').config(['$urlRouterProvider', '$stateProvider'
         controllerAs: 'Main',
         controller: 'MainCtrl',
       },
-      "User@main" :{
+
+      "Header@main" :{
         // todo: introduce ourselves, nicely
-        template: '<h1>Welcome, {{Main.user.fullName}}</h1>',
+        templateUrl: 'templates/header.html'
       },
       "Devices@main" : {
         templateUrl: 'templates/devices.html',
