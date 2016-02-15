@@ -7,7 +7,18 @@
   .config(function(){})
   .run(function(){})
 
-})()
+})();
+
+
+
+(function () {
+
+  /*
+    directives
+  */
+  angular.module('sprinkle.client')
+
+})();
 
 
 

@@ -7,7 +7,7 @@
   .config(function(){})
   .run(function(){})
 
-})()
+})();
 
 
 
