@@ -8,8 +8,8 @@ angular.module('sprinkle.states').config(['$urlRouterProvider', '$stateProvider'
     url: '/',
     views: {
       "main@": {
-        template: '<h1>hello: {{ctrl.user.username}}</h1><pre>{{ctrl.user}}</pre>',
-        controllerAs: 'ctrl',
+        templateUrl: 'templates/main.html',
+        controllerAs: 'Main',
         controller: ['Api', function function_name(Api) {
 
           var vm = this;
