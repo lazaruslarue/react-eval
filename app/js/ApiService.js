@@ -9,7 +9,6 @@
 
 
     function proxyGET(url) {
-      console.log(apiUrl + url); // dev
       return $http({
         method: "GET",
         headers: {
@@ -22,8 +21,23 @@
       });
     }
 
+    function proxyPUT(url, data) {
+      return $http({
+        method: "PUT",
+        headers: {
+          Authorization: 'Bearer '+ apiKey,
+        },
+        url: '' + apiUrl + url,
+        data: data,
+      })
+      .then(function (res) {
+        return res.data
+      });
+    }
+
     return {
       proxyGET: proxyGET,
+      proxyPUT: proxyPUT,
     }
 
 

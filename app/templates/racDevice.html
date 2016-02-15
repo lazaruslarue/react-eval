@@ -4,7 +4,9 @@
 <div> run all devices </div>
 <input placeholder="duration" ng-model="ctrl.duration"></input>
 <button ng-click="ctrl.runAll(ctrl.duration)">Start</button>
+<button ng-click="ctrl.stopWater()">Stop</button>
+<button ng-click="ctrl.runMulti(ctrl.selectedZones, ctrl.duration)">Run Multi (fail)</button>
 
 <div ng-repeat="zone in ctrl.device.zones">
-  <div rac-device-zone zone="zone"></div>
+  <div rac-device-zone ng-click="ctrl.startZone(zone.id, ctrl.duration)"zone="zone"></div>
 </div>

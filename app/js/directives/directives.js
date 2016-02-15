@@ -21,11 +21,52 @@
         })
 
         vm.runAll = function(duration) {
-          return console.log(duration); // dev
+          // todo: verify reasonable duration
+          var allZoneData = vm.device.zones.map(function(z, key){return {
+            id: z.id,
+            duration: parseInt(duration), // strictly typed backend... noted.
+            sortOrder: key, // todo: how does this work?
+          }})
+
+          Api.proxyPUT('public/zone/start_multiple', {
+            zones: allZoneData,
+          })
+          .then(function(){
+            return console.log("successful start", allZoneData)
+          })
         }
+        vm.runMulti = function(collection, duration) {
+          // todo: verify reasonable duration
+          var allZoneData = collections.map(function(z, key){return {
+            id: z.id,
+            duration: parseInt(duration), // strictly typed backend... noted.
+            sortOrder: key, // todo: how does this work?
+          }})
 
-        vm.startZone = function(duration, zoneId) {
+          Api.proxyPUT('public/zone/start_multiple', {
+            zones: allZoneData,
+          })
+          .then(function(){
+            return console.log("successful start", allZoneData)
+          })
+        }
+        vm.stopWater = function() {
+          Api.proxyPUT('public/device/stop_water', {
+            id: vm.device.id
+          })
+          .then(function(resp){
+            return console.log('successful stop water for device: ', vm.device.id);
+          })
 
+        }
+        vm.startZone = function(zoneId, duration) {
+          Api.proxyPUT('public/zone/start', {
+            id: zoneId,
+            duration: parseInt(duration),
+          })
+          .then(function(resp){
+            return console.log('successful water for zone: ', vm.device.id);
+          })
         }
       }],
       link: function (scope, ele, attr, ctrl) {
@@ -44,17 +85,6 @@
       templateUrl: 'templates/racDeviceZone.html',
       controller: ['$scope', 'Api', function ($scope, Api){
         var vm = this;
-
-        // get zone details // todo
-        // Api.proxyGET('public/zone/'+$scope.zone.id)
-        // .then(function(resp){
-        //   return console.log(resp)
-        // })
-        // start zone
-
-        // stop zone
-
-
       }],
       link: function (scope, ele, attr, ctrl) {
 
