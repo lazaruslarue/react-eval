@@ -8,16 +8,27 @@ angular.module('sprinkle.states').config(['$urlRouterProvider', '$stateProvider'
     url: '/',
     views: {
       "main@": {
-        template:"<h1>hi: {{ctrl.id}}</h1>",
+        template: '<h1>hello: {{ctrl.user.username}}</h1><pre>{{ctrl.user}}</pre>',
         controllerAs: 'ctrl',
         controller: ['Api', function function_name(Api) {
 
           var vm = this;
 
           Api.proxyGET('public/person/info')
+            .catch(_err)
             .then(function (resp){
+              // save your data visibly
               return vm.id = resp.id
-            });
+            })
+            .finally(getPersonInfo);
+
+          function getPersonInfo() {
+            // get public information
+            Api.proxyGET('public/person/'+vm.id)
+            .then(function (resp) {
+              return vm.user = resp;
+            })
+          }
         }]
       }
     },
@@ -26,3 +37,7 @@ angular.module('sprinkle.states').config(['$urlRouterProvider', '$stateProvider'
 }])
 
 })();
+
+function _err(err, resp) {
+  // todo: catch errors
+}
