@@ -1,6 +1,7 @@
 (function () {
   /*
-    Provide interactions for a device
+    Provide interactions for a device.
+    todo: break this file apart.
   */
   angular.module('sprinkle')
   .directive('racDevice', function () {
@@ -18,7 +19,7 @@
         Api.proxyGET('public/device/'+$scope.device.id)
         .then(function (resp) {
           return vm.device = resp
-        })
+        });
 
         vm.runAll = function(duration) {
           // todo: verify reasonable duration
@@ -57,7 +58,6 @@
           .then(function(resp){
             return console.log('successful stop water for device: ', vm.device.id);
           })
-
         }
         vm.startZone = function(zoneId, duration) {
           Api.proxyPUT('public/zone/start', {
@@ -65,7 +65,7 @@
             duration: parseInt(duration),
           })
           .then(function(resp){
-            return console.log('successful water for zone: ', vm.device.id);
+            return console.log('successful water for zone: ', zoneId);
           })
         }
       }],
