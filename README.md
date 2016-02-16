@@ -2,7 +2,7 @@
 
 jump in and `npm install && bower install` then `node server/index.js`
 
-select a duration and some zones.
+navigate to `http://localhost:8000/#/` select a duration and some zones.
 
 after you press "START" you'll get a notification when your response comes back "legit".
 
