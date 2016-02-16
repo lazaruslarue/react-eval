@@ -3,8 +3,8 @@
   angular.module('sprinkle',[
     'ui.router',
     'sprinkle.states',
-    'sprinkle.client',
-    'sprinkle.device',
+    'sprinkle.client', // todo: lose this
+    'sprinkle.device', // todo: lose this
   ])
   .config(function(){})
   .run(function () {})

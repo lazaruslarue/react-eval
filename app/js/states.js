@@ -12,7 +12,6 @@ angular.module('sprinkle.states').config(['$urlRouterProvider', '$stateProvider'
         controllerAs: 'Main',
         controller: 'MainCtrl',
       },
-
       "Header@main" :{
         // todo: introduce ourselves, nicely
         templateUrl: 'templates/header.html'

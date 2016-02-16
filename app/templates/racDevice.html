@@ -1,24 +1,33 @@
-<dir class="card">
+<dir class="container z-index-1">
+  <div class="section">
 
-  <div class="row">
-    <div class="col s8">
-      <h5 class="left-align device-name">{{ctrl.device.name}}</h5>
-      <p class="left-align device-id">{{ctrl.device.id}}</p>
-    </div>
-    <div class="col s3 m3 right-align">
-      <h5 class="device-name">{{ctrl.device.status}}</h5>
-      <p class="device-zone-count">this device has {{ctrl.device.zones.length}} zones</p>
+    <div class="row">
+      <div class="col s8">
+        <h5 class="left-align device-name">{{ctrl.device.name}}</h5>
+        <p class="left-align device-id">{{ctrl.device.id}}</p>
+      </div>
+      <div class="col s3 m3 right-align">
+        <h5 class="device-name">{{ctrl.device.status}}</h5>
+        <p class="device-zone-count">this device has {{ctrl.device.zones.length}} zones</p>
+      </div>
     </div>
   </div>
-  <div class="card-action">
-    <a ng-click="ctrl.stopAll()">All Off</a>
-    <a ng-click="ctrl.bulkTimer()">Bulk Timer</a>
+  <div class="section">
+    <p class="range-field">
+      <label>Watering Duration (minutes)</label>
+      <input type="range" id="duration" min="0" max="100" step="5"/>
+    </p>
+    <div class="input-field col s12">
+      <select multiple>
+        <label>Chosen Zones</label>
+        <option ng-value="" disabled selected>Select Zones</option>
+        <option ng-repeat="zone in ctrl.zones" value="{{zone.id}}">{{zone.name}}</option>
+      </select>
+    </div>
+    <div class="section">
+      <label></label>
+      <a class="waves-effect waves-light blue btn-large" ng-click="ctrl.runMulti()">Start</a>
+    </div>
   </div>
 </dir>
-<div class="divider"></div>
-
-<div class="container" ng-repeat="zone in ctrl.device.zones">
-  <div rac-device-zone zone="zone"></div>
-</div>
-
 
