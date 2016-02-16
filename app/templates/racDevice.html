@@ -8,7 +8,7 @@
       </div>
       <div class="col s3 m3 right-align">
         <h5 class="device-name">{{ctrl.device.status}}</h5>
-        <p class="device-zone-count">this device has {{ctrl.device.zones.length}} zones</p>
+        <p class="device-zone-count">{{ctrl.device.zones.length}} zones</p>
       </div>
     </div>
   </div>
@@ -17,9 +17,9 @@
       <label>Watering Duration (minutes)</label>
       <input type="range" id="duration" min="0" max="100" step="5"/>
     </p>
+    <label>Chosen Zones</label>
     <div class="input-field col s12">
       <select multiple>
-        <label>Chosen Zones</label>
         <option ng-value="" disabled selected>Select Zones</option>
         <option ng-repeat="zone in ctrl.zones" value="{{zone.id}}">{{zone.name}}</option>
       </select>
