@@ -1,20 +1,32 @@
-var ImageBox = React.createClass({
+var App = React.createClass({
   render: function(){
     return (
       <div className="imageBox">
         <h1>Images</h1>
-        <ImageImage />
+        <ImageCarousel />
         <ImageSubtext />
       </div>
     );
   }
 });
 
-var ImageImage = React.createClass({
+var ImageCarousel = React.createClass({
   render: function () {
     return (
-      <div className="imageImage">
-        Hello ImageImage
+      <div className="imageCarousel">
+        <ImageCarouselItem />
+        <ImageCarouselItem />
+        <ImageCarouselItem />
+      </div>
+    )
+  }
+});
+
+var ImageCarouselItem = React.createClass({
+  render: function () {
+    return (
+      <div className="imageCarouselItem">
+        Hello ImageCarouselItem
       </div>
     )
   }
@@ -30,6 +42,6 @@ var ImageSubtext = React.createClass({
   }
 });
 ReactDOM.render(
-  <ImageBox />,
+  <App />,
   document.getElementById('content')
 );
