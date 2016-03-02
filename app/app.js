@@ -14,9 +14,8 @@ var ImageCarousel = React.createClass({
   render: function () {
     return (
       <div className="imageCarousel">
-        <ImageCarouselItem />
-        <ImageCarouselItem />
-        <ImageCarouselItem />
+        <ImageCarouselItem source="source" />
+        <ImageSubtext subtext="it is beneath you" />
       </div>
     )
   }
@@ -26,7 +25,10 @@ var ImageCarouselItem = React.createClass({
   render: function () {
     return (
       <div className="imageCarouselItem">
-        Hello ImageCarouselItem
+        <h2 className="imageSource">
+          {this.props.source}
+        </h2>
+        {this.props.children}
       </div>
     )
   }
@@ -36,7 +38,7 @@ var ImageSubtext = React.createClass({
   render: function () {
     return (
       <div className="imageSubtext">
-        Subtext is beneath you
+        {this.props.subtext}
       </div>
     )
   }
